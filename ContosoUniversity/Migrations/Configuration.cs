@@ -149,6 +149,8 @@ namespace ContosoUniversity.Migrations
             officeAssignments.ForEach(s => context.OfficeAssignments.AddOrUpdate(p => p.InstructorID, s));
             context.SaveChanges();
 
+
+
             AddOrUpdateInstructor(context, "Chemistry", "Kapoor");
             AddOrUpdateInstructor(context, "Chemistry", "Harui");
             AddOrUpdateInstructor(context, "Microeconomics", "Zheng");
