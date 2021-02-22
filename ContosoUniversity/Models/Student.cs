@@ -6,26 +6,27 @@ using System.ComponentModel.DataAnnotations.Schema;//allows to rename the column
 
 namespace ContosoUniversity.Models
 {
-    public class Student
+    public class Student : Person
     {
-        public int ID { get; set; }
+        //public int ID { get; set; }
 
-        [Required]
-        [StringLength(50)] //setting limits in the browser to the number of characters allowed (especially usefull for user input)
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "First name must start with a Upper letter.") ]
-        //at this point we must implement a migration (add-migration + update-database in the Package Manager Console)
-        [Display(Name = "Last Name")]//how the label is displayed in the browser
-        public string LastName { get; set; }
+        //[Required]
+        //[StringLength(50)] //setting limits in the browser to the number of characters allowed (especially usefull for user input)
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "First name must start with a Upper letter.") ]
+        ////at this point we must implement a migration (add-migration + update-database in the Package Manager Console)
+        //[Display(Name = "Last Name")]//how the label is displayed in the browser
+        //public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "First Name")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "First name cannot be longer than 50 characters.")]
-        [Column("FirstName")]//kind of aliasing the FirstMidName column
-        public string FirstMidName { get; set; }
+        //[Required]
+        //[Display(Name = "First Name")]
+        //[StringLength(50, MinimumLength = 2, ErrorMessage = "First name cannot be longer than 50 characters.")]
+        //[Column("FirstName")]//kind of aliasing the FirstMidName column
+        //public string FirstMidName { get; set; }
+
+
+
         [DataType(DataType.Date)] //The DataType Enumeration provides for many data types, 
         //such as Date, Time, PhoneNumber, Currency, EmailAddress and more.
-
-
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         //DataFormatString tells the browser how to always and specifically display the date attributes (using DataAnnotations namespace)
@@ -34,14 +35,14 @@ namespace ContosoUniversity.Models
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; } //this is the intrinsic type found in the database
 
-        [Display(Name = "Full Name")]
-        public string FullName //this does not create a column in the database
-        {
-            get
-            {
-                return LastName + ", " + FirstMidName;
-            }
-        }
+        //[Display(Name = "Full Name")]
+        //public string FullName //this does not create a column in the database
+        //{
+        //    get
+        //    {
+        //        return LastName + ", " + FirstMidName;
+        //    }
+        //}
 
 
 
