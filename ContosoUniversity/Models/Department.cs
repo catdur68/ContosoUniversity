@@ -26,6 +26,9 @@ namespace ContosoUniversity.Models
         //Therefore the InstructorID property is included as the foreign key to the Instructor entity, 
         //and a question mark is added after the int type designation to mark the property as nullable.
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public virtual Instructor Administrator { get; set; }
         //The navigation property is named Administrator but holds an Instructor entity
 
